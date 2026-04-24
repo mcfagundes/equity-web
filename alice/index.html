@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Diagnóstico Estratégico · Pilar Produto</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap');
+
+  :root {
+    --preto: #0f0f0f;
+    --branco: #f9f7f4;
+    --ouro: #b8945a;
+    --ouro-claro: #d4aa72;
+    --cinza: #6b6b6b;
+    --cinza-claro: #e8e4df;
+    --bege: #f2ede6;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--branco);
+    color: var(--preto);
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  /* CAPA */
+  .capa {
+    background: var(--preto);
+    color: var(--branco);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .capa::before {
+    content: '';
+    position: absolute;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(184,148,90,0.12) 0%, transparent 70%);
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .capa-label {
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--ouro);
+    margin-bottom: 32px;
+  }
+
+  .capa h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(38px, 6vw, 72px);
+    font-weight: 400;
+    line-height: 1.15;
+    margin-bottom: 24px;
+    max-width: 780px;
+  }
+
+  .capa h1 em {
+    font-style: italic;
+    color: var(--ouro-claro);
+  }
+
+  .capa p {
+    font-size: 16px;
+    color: rgba(249,247,244,0.6);
+    max-width: 540px;
+    margin: 0 auto 48px;
+  }
+
+  .capa-nome {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    letter-spacing: 2px;
+    color: var(--ouro);
+    border-top: 1px solid rgba(184,148,90,0.3);
+    padding-top: 24px;
+    width: 240px;
+    text-align: center;
+  }
+
+  /* SEÇÕES */
+  section {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 100px 40px;
+  }
+
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--ouro);
+    margin-bottom: 20px;
+  }
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4vw, 46px);
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 32px;
+  }
+
+  h2 em { font-style: italic; color: var(--ouro); }
+
+  .lead {
+    font-size: 18px;
+    color: var(--cinza);
+    max-width: 680px;
+    margin-bottom: 48px;
+    line-height: 1.8;
+  }
+
+  .divider {
+    width: 60px;
+    height: 1px;
+    background: var(--ouro);
+    margin: 0 0 48px;
+  }
+
+  /* BLOCO ESCURO */
+  .bloco-escuro {
+    background: var(--preto);
+    color: var(--branco);
+    padding: 100px 40px;
+  }
+
+  .bloco-escuro section { color: var(--branco); }
+  .bloco-escuro h2 { color: var(--branco); }
+  .bloco-escuro .lead { color: rgba(249,247,244,0.65); }
+
+  /* BLOCO BEGE */
+  .bloco-bege { background: var(--bege); padding: 100px 40px; }
+
+  /* CARDS */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2px;
+    margin-top: 48px;
+  }
+
+  .card {
+    background: var(--branco);
+    padding: 40px 32px;
+    border-top: 2px solid var(--ouro);
+  }
+
+  .bloco-escuro .card {
+    background: rgba(255,255,255,0.05);
+    border-color: var(--ouro);
+  }
+
+  .card-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    color: var(--ouro);
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+
+  .bloco-escuro .card h3 { color: var(--branco); }
+
+  .card p {
+    font-size: 14px;
+    color: var(--cinza);
+    line-height: 1.7;
+  }
+
+  .bloco-escuro .card p { color: rgba(249,247,244,0.55); }
+
+  /* DIAGNÓSTICO */
+  .diagnostico-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-top: 48px;
+  }
+
+  @media (max-width: 640px) {
+    .diagnostico-grid { grid-template-columns: 1fr; }
+  }
+
+  .diag-item {
+    padding: 36px 32px;
+    background: var(--branco);
+  }
+
+  .diag-item.destaque {
+    background: var(--ouro);
+    color: var(--preto);
+  }
+
+  .diag-item .tag {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--ouro);
+    margin-bottom: 14px;
+    display: block;
+  }
+
+  .diag-item.destaque .tag { color: rgba(0,0,0,0.5); }
+
+  .diag-item h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    margin-bottom: 12px;
+    line-height: 1.35;
+  }
+
+  .diag-item p {
+    font-size: 14px;
+    color: var(--cinza);
+    line-height: 1.7;
+  }
+
+  .diag-item.destaque p { color: rgba(0,0,0,0.65); }
+
+  /* LINHA DO TEMPO */
+  .timeline { margin-top: 56px; position: relative; }
+
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 32px;
+    margin-bottom: 48px;
+    align-items: start;
+  }
+
+  .timeline-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    color: var(--cinza-claro);
+    line-height: 1;
+    text-align: right;
+  }
+
+  .bloco-escuro .timeline-num { color: rgba(255,255,255,0.1); }
+  .bloco-bege .timeline-num { color: rgba(0,0,0,0.15); }
+
+  .timeline-content h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+
+  .bloco-escuro .timeline-content h3 { color: var(--branco); }
+
+  .timeline-content p {
+    font-size: 14px;
+    color: var(--cinza);
+    line-height: 1.75;
+    max-width: 560px;
+  }
+
+  .bloco-escuro .timeline-content p { color: rgba(249,247,244,0.55); }
+
+  .timeline-content .badge {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ouro);
+    border: 1px solid var(--ouro);
+    padding: 4px 12px;
+    margin-bottom: 14px;
+  }
+
+  /* CITAÇÃO */
+  .citacao {
+    border-left: 3px solid var(--ouro);
+    padding: 24px 32px;
+    margin: 48px 0;
+    background: var(--bege);
+  }
+
+  .bloco-escuro .citacao { background: rgba(255,255,255,0.04); }
+  .bloco-bege .citacao { background: rgba(255,255,255,0.55); }
+
+  .citacao p {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-style: italic;
+    line-height: 1.5;
+    color: var(--preto);
+  }
+
+  .bloco-escuro .citacao p { color: var(--branco); }
+
+  .citacao span {
+    display: block;
+    margin-top: 12px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ouro);
+  }
+
+  /* TABELA */
+  .gap-table { margin-top: 48px; width: 100%; border-collapse: collapse; }
+
+  .gap-table th {
+    text-align: left;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--ouro);
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--cinza-claro);
+  }
+
+  .gap-table td {
+    padding: 20px;
+    font-size: 14px;
+    line-height: 1.6;
+    border-bottom: 1px solid var(--cinza-claro);
+    vertical-align: top;
+  }
+
+  .gap-table tr:last-child td { border-bottom: none; }
+
+  .gap-table .col-atual { color: var(--cinza); }
+  .gap-table .col-depois { color: var(--preto); font-weight: 500; }
+
+  .gap-table .seta {
+    color: var(--ouro);
+    font-size: 18px;
+    text-align: center;
+    padding: 20px 8px;
+  }
+
+  /* ENCERRAMENTO */
+  .encerramento {
+    background: var(--preto);
+    color: var(--branco);
+    text-align: center;
+    padding: 100px 40px;
+  }
+
+  .encerramento h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4vw, 52px);
+    font-weight: 400;
+    margin-bottom: 24px;
+    color: var(--branco);
+  }
+
+  .encerramento h2 em { color: var(--ouro); font-style: italic; }
+
+  .encerramento p {
+    font-size: 16px;
+    color: rgba(249,247,244,0.6);
+    max-width: 560px;
+    margin: 0 auto 48px;
+    line-height: 1.8;
+  }
+
+  .assinatura {
+    display: inline-block;
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: var(--ouro);
+    letter-spacing: 1px;
+    border-top: 1px solid rgba(184,148,90,0.4);
+    padding-top: 20px;
+  }
+
+  /* NÚMEROS */
+  .numeros { display: flex; gap: 0; margin: 48px 0; flex-wrap: wrap; }
+
+  .numero-item {
+    flex: 1;
+    min-width: 180px;
+    padding: 32px 24px;
+    border-left: 1px solid var(--cinza-claro);
+  }
+
+  .numero-item:first-child { border-left: none; }
+
+  .numero-item .valor {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    color: var(--preto);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .numero-item .label-num {
+    font-size: 12px;
+    color: var(--cinza);
+    letter-spacing: 1px;
+  }
+
+  /* PILL */
+  .pill {
+    display: inline-block;
+    background: var(--ouro);
+    color: var(--preto);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    margin-bottom: 32px;
+    font-weight: 500;
+  }
+
+  /* MÉTODO */
+  .metodo-box {
+    background: var(--preto);
+    color: var(--branco);
+    padding: 56px 48px;
+    margin-top: 48px;
+    border-left: 3px solid var(--ouro);
+  }
+
+  .metodo-box h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 34px;
+    margin-bottom: 16px;
+    color: var(--branco);
+  }
+
+  .metodo-box h3 em { color: var(--ouro-claro); font-style: italic; }
+
+  .metodo-letras {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 24px;
+    margin-top: 36px;
+  }
+
+  .letra-item {
+    border-top: 1px solid rgba(184,148,90,0.3);
+    padding-top: 16px;
+  }
+
+  .letra-item .letra {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    color: var(--ouro);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .letra-item h4 {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--branco);
+    margin-bottom: 6px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .letra-item p {
+    font-size: 13px;
+    color: rgba(249,247,244,0.6);
+    line-height: 1.6;
+  }
+
+  .alternativas-metodo {
+    background: rgba(255,255,255,0.04);
+    padding: 24px 32px;
+    margin-top: 32px;
+    border-left: 2px solid rgba(184,148,90,0.4);
+  }
+
+  .alternativas-metodo h5 {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--ouro);
+    margin-bottom: 10px;
+  }
+
+  .alternativas-metodo p {
+    color: rgba(249,247,244,0.55);
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  /* FRASE DESTAQUE */
+  .frase-destaque {
+    background: var(--bege);
+    padding: 64px 40px;
+    margin: 56px 0;
+    text-align: center;
+  }
+
+  .frase-destaque p {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(22px, 3vw, 30px);
+    font-style: italic;
+    line-height: 1.4;
+    color: var(--preto);
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .frase-destaque span {
+    display: block;
+    margin-top: 20px;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--ouro);
+  }
+
+  /* ESTEIRA */
+  .esteira {
+    margin-top: 48px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2px;
+  }
+
+  .esteira-item {
+    background: var(--branco);
+    padding: 32px 24px;
+    border-top: 2px solid var(--ouro);
+  }
+
+  .esteira-item .prazo {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--ouro);
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .esteira-item h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+
+  .esteira-item p {
+    font-size: 13px;
+    color: var(--cinza);
+    line-height: 1.6;
+  }
+
+  /* RESPONSIVO */
+  @media (max-width: 600px) {
+    section { padding: 70px 24px; }
+    .bloco-escuro, .bloco-bege { padding: 70px 24px; }
+    .cards-grid { grid-template-columns: 1fr; }
+    .timeline-item { grid-template-columns: 50px 1fr; gap: 16px; }
+    .timeline-num { font-size: 36px; }
+    .numeros { flex-direction: column; }
+    .numero-item { border-left: none; border-top: 1px solid var(--cinza-claro); }
+    .metodo-box { padding: 36px 28px; }
+  }
+
+  /* PDF A4 RETRATO */
+  @page {
+    size: A4 portrait;
+    margin: 0;
+  }
+
+  @media print {
+    html, body {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+      color-adjust: exact;
+      background: var(--branco);
+    }
+    body { font-size: 11pt; line-height: 1.55; }
+
+    .capa {
+      min-height: 100vh;
+      height: 100vh;
+      padding: 70px 50px;
+      page-break-after: always;
+      break-after: page;
+    }
+    .capa h1 { font-size: 32pt; max-width: 100%; }
+    .capa p { font-size: 11pt; }
+    .capa-label { font-size: 9pt; margin-bottom: 28px; }
+
+    section {
+      max-width: 100%;
+      padding: 50px 50px;
+    }
+    .bloco-escuro,
+    .bloco-bege,
+    .encerramento {
+      padding: 50px 50px;
+      page-break-before: always;
+      break-before: page;
+    }
+    .bloco-escuro section,
+    .bloco-bege section,
+    .encerramento section { padding: 0; }
+
+    h2 { font-size: 22pt; page-break-after: avoid; break-after: avoid; }
+    .section-label { font-size: 9pt; }
+    .lead { font-size: 11pt; line-height: 1.65; }
+
+    .card,
+    .diag-item,
+    .timeline-item,
+    .esteira-item,
+    .letra-item,
+    .numero-item,
+    .citacao,
+    .frase-destaque,
+    .metodo-box,
+    .alternativas-metodo {
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    .gap-table { font-size: 10pt; }
+    .gap-table tr { page-break-inside: avoid; break-inside: avoid; }
+    .gap-table td, .gap-table th { padding: 12px 14px; }
+
+    .cards-grid { gap: 6px; margin-top: 28px; }
+    .diagnostico-grid { gap: 6px; margin-top: 28px; }
+    .esteira { gap: 6px; margin-top: 28px; }
+    .numeros { margin: 28px 0; }
+
+    .metodo-box { padding: 36px 32px; margin-top: 32px; }
+    .metodo-box h3 { font-size: 24pt; }
+    .metodo-letras { gap: 18px; margin-top: 24px; }
+    .letra-item .letra { font-size: 26pt; }
+
+    .encerramento h2 { font-size: 28pt; }
+
+    a { color: inherit; text-decoration: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- CAPA -->
+<div class="capa">
+  <p class="capa-label">Diagnóstico Estratégico · Pilar Produto · Confidencial</p>
+  <h1>A psicóloga de <em>TDAH feminino adulto</em> que você já é por dentro. E que o mercado vai começar a ler por fora.</h1>
+  <p>Uma análise personalizada sobre o recorte que você já carrega. E sobre o que muda quando você finalmente assume esse lugar publicamente.</p>
+  <div class="capa-nome">Alice Nunes</div>
+</div>
+
+<!-- 01 · O QUE VOCÊ JÁ CARREGA -->
+<section>
+  <p class="section-label">01 · O que você já carrega</p>
+  <div class="divider"></div>
+  <h2>Dois anos de formada.<br>Uma vida inteira <em>estudando o tema.</em></h2>
+  <p class="lead">Antes de falar sobre o que precisa mudar, é importante nomear o que já existe. O que você carrega é extraordinariamente difícil de reunir em uma psicóloga com dois anos de carreira.</p>
+
+  <div class="numeros">
+    <div class="numero-item">
+      <div class="valor">14</div>
+      <div class="label-num">anos desde o primeiro livro de TDAH que você leu (Ana Beatriz Silva)</div>
+    </div>
+    <div class="numero-item">
+      <div class="valor">TCC</div>
+      <div class="label-num">final da graduação sobre TDAH em mulheres</div>
+    </div>
+    <div class="numero-item">
+      <div class="valor">Pós</div>
+      <div class="label-num">em Terapia Cognitivo-Comportamental concluída (PUC Online)</div>
+    </div>
+    <div class="numero-item">
+      <div class="valor">MBA</div>
+      <div class="label-num">Inovação em Saúde em curso, ponte para o corporativo</div>
+    </div>
+  </div>
+
+  <p class="lead" style="margin-top:0">Você é uma das poucas psicólogas do Brasil que reúne, ao mesmo tempo, uma vivência pessoal de TDAH, um recorte acadêmico sobre TDAH em mulheres, pós-graduação em uma abordagem baseada em evidências e um MBA que abre o caminho para o mercado corporativo. Isso é extraordinariamente difícil. E o mercado digital ainda não sabe. Nem você estava enxergando com essa clareza até começarmos a conversar.</p>
+
+  <p class="lead" style="margin-top:0">Outros ativos latentes que apareceram nas nossas conversas: consultoria de imagem já feita, 10 vídeos já gravados (ainda não publicados), curso de gravação contratado com uma produtora ex-Globo, microfone comprado, cenário montado em casa, dois dias livres por semana. A infraestrutura está pronta. Falta apertar o play.</p>
+</section>
+
+<!-- 02 · DIAGNÓSTICO -->
+<div class="bloco-bege">
+  <section style="padding-top:0;padding-bottom:0">
+    <p class="section-label">02 · O diagnóstico honesto</p>
+    <div class="divider"></div>
+    <h2>Três janelas abertas.<br><em>Só uma</em> pode virar recorte.</h2>
+    <p class="lead">Depois de ler seu briefing, assistir às nossas três conversas, estudar o mercado e escutar o que você mesma já sabe sobre si, o diagnóstico é claro.</p>
+
+    <div class="diagnostico-grid">
+      <div class="diag-item">
+        <span class="tag">Situação atual</span>
+        <h3>Três janelas abertas ao mesmo tempo. Tentar atender as três mata as três.</h3>
+        <p>Adultos em geral, crianças com TDAH e psicologia organizacional são caminhos diferentes, com linguagens diferentes, com públicos diferentes. Você já percebeu isso na prática: quando veio a dúvida sobre manter crianças no consultório atual, a decisão foi firme e você tirou. Resta organizar o restante com a mesma clareza.</p>
+      </div>
+      <div class="diag-item">
+        <span class="tag">Consequência</span>
+        <h3>Você escreveu "atendo adultos com confusão emocional". O mercado lê "mais uma psicóloga".</h3>
+        <p>Sua descrição de oferta hoje é tão ampla que poderia ser copiada por qualquer psicóloga recém-formada do Brasil. O valor já existe. A tradução pública dele é que ainda precisa ser feita.</p>
+      </div>
+      <div class="diag-item">
+        <span class="tag">O problema real</span>
+        <h3>Você sente que precisa estudar mais antes de se posicionar. Não precisa.</h3>
+        <p>Você mesma disse: "Como eu vou dizer se eu não tenho?" Mas você tem. TCC acadêmico, pós em TCC, vivência clínica, vivência pessoal. Estudo sobra. Falta a coragem de assumir o que já sabe.</p>
+      </div>
+      <div class="diag-item destaque">
+        <span class="tag">A boa notícia</span>
+        <h3>Você está num momento raro. Tábula rasa digital, formação pronta, janela regulatória aberta.</h3>
+        <p>Zero legado contraditório para reverter. Dois dias livres por semana. Ticket fechado em R$ 180. Uma lei (NR-01) que vira obrigatória em 26/05/2026, abrindo um mercado novo. Esse alinhamento não se repete.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- 03 · A TESE -->
+<div class="bloco-escuro">
+  <section style="padding-top:0;padding-bottom:0">
+    <p class="section-label" style="color:var(--ouro)">03 · A tese central</p>
+    <div class="divider"></div>
+    <h2>Você é a psicóloga<br>de <em>TDAH feminino adulto.</em></h2>
+    <p class="lead">Essa é a escolha. Uma leitura do que você já é por dentro, organizada de forma que o mercado passe a ler por fora. Cinco variáveis únicas se cruzam em você. Essa intersecção é praticamente indefensável pela concorrência:</p>
+
+    <div class="cards-grid" style="margin-top:40px">
+      <div class="card">
+        <span class="card-num">I</span>
+        <h3>Vivência pessoal.</h3>
+        <p>Você é TDAH diagnosticada, medicada, em processo. Ninguém fala de dentro como quem vive. Isso é um ativo narrativo que nenhum concorrente copia.</p>
+      </div>
+      <div class="card">
+        <span class="card-num">II</span>
+        <h3>Lastro acadêmico.</h3>
+        <p>Seu TCC foi sobre TDAH em mulheres. Não foi acaso, foi escolha. Você já tem material original, referências e pensamento estruturado sobre o tema.</p>
+      </div>
+      <div class="card">
+        <span class="card-num">III</span>
+        <h3>Abordagem com evidência.</h3>
+        <p>TCC é a abordagem com maior evidência para TDAH adulto. Num mercado saturado de constelações e pseudociência, o seu rigor ético é barreira de entrada.</p>
+      </div>
+      <div class="card">
+        <span class="card-num">IV</span>
+        <h3>Sensibilidade feminina específica.</h3>
+        <p>Você nomeou em voz alta a diferença: "a mulher desorganizada vira deslechada; o homem desorganizado é só desorganizado." Essa é a sua tese.</p>
+      </div>
+      <div class="card">
+        <span class="card-num">V</span>
+        <h3>Ponte para o corporativo.</h3>
+        <p>MBA em Inovação em Saúde somado à NR-01 obrigatória em maio/2026. TDAH feminino hoje, neurodivergência no trabalho amanhã, consultoria organizacional em 6 meses.</p>
+      </div>
+    </div>
+
+    <p class="lead" style="margin-top:48px">O recorte central é TDAH feminino adulto. O atendimento, porém, acompanha as comorbidades comuns do quadro: transtornos de humor, borderline, TOC, ansiedade severa, impulsividade. Especialização declarada na dor central, amplitude técnica para o que costuma vir junto. É isso que permite comunicar uma especialidade pública sem mentir sobre o escopo da clínica.</p>
+
+    <div class="citacao">
+      <p>"A mulher tem que ser aquela mulher centrada, fazer tudo certinho, deixar tudo organizado. A partir do momento que não faz nesse script, ela é desorganizada, deslechada, e aquilo piora. Homem é tudo bem, homem é desorganizado."</p>
+      <span>Alice Nunes · 6 de abril de 2026</span>
+    </div>
+
+    <p class="lead">Isso que você disse em voz alta, quase casualmente, é a frase que nomeia tudo: a dor do seu público, a lente do seu trabalho, o porquê do seu recorte. A psicóloga que nomeia essa distinção em voz alta vira referência. É disso que se trata.</p>
+
+    <div class="citacao">
+      <p>"Eu não quero crescer vendendo promessa. Quero crescer vendendo o que eu entrego de verdade. Se for pra crescer rápido de um jeito que me tira a integridade, prefiro crescer mais devagar."</p>
+      <span>Alice Nunes · 21 de abril de 2026</span>
+    </div>
+
+    <p class="lead">E é por isso que o recorte foi possível. Ele encontra uma paciente que sofreu muito por falta de diagnóstico, entrega uma resposta clínica baseada em evidência, e sustenta uma marca que tem integridade como critério inegociável. Os três planos se resolvem na mesma escolha.</p>
+  </section>
+</div>
+
+<!-- 04 · FRASE DE SUSTENTAÇÃO -->
+<section>
+  <p class="section-label">04 · Sua frase de sustentação</p>
+  <div class="divider"></div>
+  <h2>A mensagem central<br><em>que organiza tudo.</em></h2>
+  <p class="lead">Toda marca pessoal forte tem uma frase que resume a promessa. É ela que vai permear sua bio, seu conteúdo, sua apresentação em 30 segundos. Proposta:</p>
+
+  <div class="frase-destaque">
+    <p>Ciência, vivência e cuidado para mulheres que nunca se encaixaram nas regras feitas para cérebros neurotípicos.</p>
+    <span>Frase de sustentação · Proposta</span>
+  </div>
+
+  <p class="lead">Essa frase entrega três coisas ao mesmo tempo: sua autoridade técnica (ciência), seu diferencial autoral (vivência), seu tom clínico (cuidado). E nomeia a dor do público sem precisar explicá-la. A leitora certa já sabe que é para ela.</p>
+</section>
+
+<!-- 05 · MÉTODO PRÓPRIO -->
+<div class="bloco-bege">
+  <section style="padding-top:0;padding-bottom:0">
+    <p class="section-label">05 · Seu método próprio</p>
+    <div class="divider"></div>
+    <h2>Um método com <em>nome e assinatura.</em></h2>
+    <p class="lead">No briefing você respondeu "não tenho método próprio". A partir de hoje você tem. Um método com nome próprio é o que separa "uma psicóloga" de "a psicóloga com assinatura de trabalho". Proposta principal:</p>
+
+    <div class="metodo-box">
+      <h3>Método <em>Trama</em></h3>
+      <p style="color:rgba(249,247,244,0.75);font-size:15px;max-width:680px;">Uma trama é o entrelaçamento dos fios que sustentam um tecido. Três fios sustentam o seu trabalho: ciência (TCC com base em evidência), vivência (o TDAH que você carrega por dentro) e cuidado (a clínica feminina que só você consegue oferecer nesse cruzamento). Cada paciente também reescreve a própria trama ao longo do processo: a história que ela achava que era sobre preguiça, incapacidade ou desleixo vira a história de um cérebro que simplesmente funciona diferente. Cinco etapas conduzem esse percurso:</p>
+
+      <div class="metodo-letras">
+        <div class="letra-item">
+          <div class="letra">01</div>
+          <h4>Compreender</h4>
+          <p>Psicoeducação com base científica. A paciente entende como o cérebro TDAH funciona antes de tentar mudar qualquer coisa.</p>
+        </div>
+        <div class="letra-item">
+          <div class="letra">02</div>
+          <h4>Reconhecer</h4>
+          <p>Mapa de gatilhos, sobrecargas, padrões de autossabotagem e comorbidades do quadro (ansiedade, impulsividade, TOC).</p>
+        </div>
+        <div class="letra-item">
+          <div class="letra">03</div>
+          <h4>Regular</h4>
+          <p>Ferramentas TCC concretas para gestão emocional e comportamental no dia a dia, já a partir das primeiras sessões.</p>
+        </div>
+        <div class="letra-item">
+          <div class="letra">04</div>
+          <h4>Estruturar</h4>
+          <p>Construção de uma rotina compatível com o cérebro TDAH. Sem forçar o modelo neurotípico, sem abandonar a exigência de sustentação.</p>
+        </div>
+        <div class="letra-item">
+          <div class="letra">05</div>
+          <h4>Integrar</h4>
+          <p>Os ganhos deixam de exigir esforço consciente e viram identidade. A paciente sai do lugar de "sou o problema" para "entendo como eu funciono e posso viver bem".</p>
+        </div>
+      </div>
+
+      <div class="alternativas-metodo">
+        <h5>Nota sobre o nome</h5>
+        <p>"Trama" venceu por três razões: som curto e forte, referência a tecido feminino sem ser óbvio, e a segunda camada de significado em "trama" como narrativa (a trama de um livro, de uma vida). O termo "Autonomia", que apareceu no primeiro esboço como quinta etapa, foi descartado: carrega risco de ser lido como "alta definitiva", leitura que não é ética nem realista em TDAH. "Integrar" é mais honesto. Descreve o que realmente acontece quando a terapia funciona.</p>
+        <p style="margin-top:14px;">Duas alternativas também consideradas, caso "Trama" não feche internamente: <strong style="color:rgba(249,247,244,0.8)">Método Órbita</strong> (o cérebro que gira em órbita própria, não contra o mundo) e <strong style="color:rgba(249,247,244,0.8)">Método Fio</strong> (o fio que costura a história de quem você foi com quem você é).</p>
+      </div>
+    </div>
+
+    <p class="lead" style="margin-top:48px">O que não pode ficar é a ausência de um método assinado. Quando você apresenta "eu trabalho com o Método Trama", a paciente para de te comparar com outras psicólogas e começa a comparar o seu método com um vazio.</p>
+  </section>
+</div>
+
+<!-- 06 · OFERTA DE 30s -->
+<div class="bloco-escuro">
+  <section style="padding-top:0;padding-bottom:0">
+    <p class="section-label" style="color:var(--ouro)">06 · Sua oferta em 30 segundos</p>
+    <div class="divider"></div>
+    <h2>Como você passa a se<br><em>apresentar a partir de hoje.</em></h2>
+    <p class="lead">Você respondeu no briefing: "eu ajudo adultos a compreenderem suas emoções e lidarem com conflitos internos, e também atuo com crianças e adolescentes com foco em TDAH." Essa frase te descreve genérica. Abaixo, a versão afiada que deve ser treinada e decorada:</p>
+
+    <div class="citacao">
+      <p>"Sou psicóloga especialista em TDAH feminino adulto. Atendo mulheres que passaram a vida se achando desorganizadas, desleixadas ou incapazes, e descobriram tarde que o cérebro delas funciona de um jeito específico. Meu trabalho une terapia cognitivo-comportamental baseada em evidências, vivência pessoal (eu também tenho TDAH) e um olhar específico para a dor de ser mulher com um cérebro que não cabe nas regras convencionais."</p>
+      <span>Pitch de apresentação · cerca de 25 segundos</span>
+    </div>
+
+    <p class="lead">Esse é o texto que você treina esta semana. No dia 1 parece estranho. No dia 5 parece óbvio. No dia 10 já saiu automático na boca. Toda vez que alguém perguntar "você é psicóloga de quê?", você vai ter uma resposta que faz a pessoa parar.</p>
+  </section>
+</div>
+
+<!-- 07 · ESTEIRA -->
+<section>
+  <p class="section-label">07 · Esteira de produtos · 12 meses</p>
+  <div class="divider"></div>
+  <h2>Uma escada clara<br><em>de onde você está para onde vai.</em></h2>
+  <p class="lead">Um produto novo só entra quando o anterior tem consistência. Nada no ar, nada prematuro. Cada degrau sustenta o próximo.</p>
+
+  <div class="esteira">
+    <div class="esteira-item">
+      <span class="prazo">Agora</span>
+      <h4>Sessão individual TDAH feminino adulto</h4>
+      <p>Presencial em Imperatriz e online. Ticket de entrada R$ 180, com plano de escala até R$ 250 nos próximos 6 a 9 meses, conforme enchimento de agenda.</p>
+    </div>
+    <div class="esteira-item">
+      <span class="prazo">Mês 2</span>
+      <h4>Pacote mensal (4 sessões)</h4>
+      <p>Fideliza a paciente certa e gera previsibilidade de caixa desde cedo. Pequeno desconto sobre o avulso.</p>
+    </div>
+    <div class="esteira-item">
+      <span class="prazo">Mês 2</span>
+      <h4>Atendimento infantil TDAH em clínica parceira</h4>
+      <p>Volume constante, fluxo semanal, fora do consultório principal. Muitas vezes vem das mães atendidas no eixo adulto.</p>
+    </div>
+    <div class="esteira-item">
+      <span class="prazo">Mês 3</span>
+      <h4>Sessão de avaliação inicial TDAH</h4>
+      <p>Oferta de entrada. Porta baixa, sem compromisso de longo prazo. Qualifica leads que ainda não sabem se querem terapia semanal.</p>
+    </div>
+    <div class="esteira-item">
+      <span class="prazo">Mês 4 e 5</span>
+      <h4>E-book "TDAH feminino além do foco"</h4>
+      <p>Lead magnet que educa, prova autoridade e qualifica público novo. Gera base de e-mails para lançamentos futuros.</p>
+    </div>
+    <div class="esteira-item">
+      <span class="prazo">Mês 6</span>
+      <h4>Grupo terapêutico TDAH feminino</h4>
+      <p>De 8 a 12 mulheres por turma. Reduz a carga individual, aumenta o ticket por hora, cria comunidade entre pacientes do mesmo recorte.</p>
+    </div>
+    <div class="esteira-item">
+      <span class="prazo">Mês 7 em diante</span>
+      <h4>Consultoria NR-01 e palestras corporativas</h4>
+      <p>Janela regulatória obrigatória. Ticket de R$ 5k a R$ 25k por projeto. Abre o eixo B2B que o MBA em Inovação em Saúde já estava preparando.</p>
+    </div>
+    <div class="esteira-item">
+      <span class="prazo">Mês 9 em diante</span>
+      <h4>Mentoria ou curso para psicólogas em TDAH</h4>
+      <p>Posicionamento final: você deixa de ser apenas especialista clínica para virar referência do nicho no Brasil.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 08 · ANTES E DEPOIS -->
+<div class="bloco-bege">
+  <section style="padding-top:0;padding-bottom:0">
+    <p class="section-label">08 · A transformação</p>
+    <div class="divider"></div>
+    <h2>De onde você está<br>para onde você <em>deveria estar.</em></h2>
+
+    <table class="gap-table">
+      <thead>
+        <tr>
+          <th>Hoje</th>
+          <th class="seta"></th>
+          <th>Em 90 dias</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="col-atual">"Atendo adultos com confusão emocional, e também crianças e adolescentes."</td>
+          <td class="seta">→</td>
+          <td class="col-depois">"Sou especialista em TDAH feminino adulto, com cobertura clínica das comorbidades comuns do quadro."</td>
+        </tr>
+        <tr>
+          <td class="col-atual">Sem método próprio nomeado. Descrição de oferta genérica.</td>
+          <td class="seta">→</td>
+          <td class="col-depois">Método Trama estruturado e assinado. Cinco etapas com conteúdo próprio descrito em uma página.</td>
+        </tr>
+        <tr>
+          <td class="col-atual">Instagram sem linha editorial. Posts pontuais sem construção.</td>
+          <td class="seta">→</td>
+          <td class="col-depois">Bio reescrita, 5 pilares editoriais ativos, 30 peças publicadas em 90 dias, aproveitamento dos 10 vídeos já gravados.</td>
+        </tr>
+        <tr>
+          <td class="col-atual">Zero pacientes ativos no eixo adulto. Dependência exclusiva de indicação.</td>
+          <td class="seta">→</td>
+          <td class="col-depois">Carteira inicial montada com pacientes vindos do digital somados à indicação.</td>
+        </tr>
+        <tr>
+          <td class="col-atual">Oscilando entre cobrar R$ 160 ou R$ 200, sem argumento técnico que sustente a decisão.</td>
+          <td class="seta">→</td>
+          <td class="col-depois">R$ 180 consolidado. Plano de escala para R$ 220 até o fim do 1º trimestre.</td>
+        </tr>
+        <tr>
+          <td class="col-atual">Medo de repetir o burnout das colegas. WhatsApp como tensão infinita.</td>
+          <td class="seta">→</td>
+          <td class="col-depois">Regras de atendimento estruturadas. Limites claros. Saúde mental protegida desde a base.</td>
+        </tr>
+        <tr>
+          <td class="col-atual">"Um início de depressãozinha por não saber como me posicionar."</td>
+          <td class="seta">→</td>
+          <td class="col-depois">Identidade profissional cristalizada. Clareza que vira segurança, e segurança que vira autoridade.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</div>
+
+<!-- 09 · PRIMEIROS 7 DIAS -->
+<div class="bloco-escuro">
+  <section style="padding-top:0;padding-bottom:0">
+    <p class="section-label" style="color:var(--ouro)">09 · Os primeiros 7 dias</p>
+    <div class="divider"></div>
+    <h2>O que começa a mudar<br><em>amanhã de manhã.</em></h2>
+    <p class="lead">Nenhuma das decisões acima vale sem execução imediata. Sua semana 1 tem um objetivo único: atravessar a linha entre "psicóloga em estruturação" e "psicóloga com eixo declarado".</p>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-num">01</div>
+        <div class="timeline-content">
+          <span class="badge">Dia 1 · Segunda</span>
+          <h3>Assumir a tese internamente.</h3>
+          <p>Escrever a mão: "Sou psicóloga especialista em TDAH feminino adulto." Colar em lugar visível. Gravar áudio de 2 a 3 min para si mesma sobre o que sente ao assumir isso.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-num">02</div>
+        <div class="timeline-content">
+          <span class="badge">Dia 2 · Terça</span>
+          <h3>Treinar o pitch de 30 segundos.</h3>
+          <p>Gravar 3 takes no celular, enviar o melhor pelo WhatsApp da mentoria para feedback. Decorar a versão final até sair automática.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-num">03</div>
+        <div class="timeline-content">
+          <span class="badge">Dia 3 · Quarta</span>
+          <h3>Reescrever o Instagram.</h3>
+          <p>Nova bio, foto profissional se necessário, três destaques criados: "Sobre mim", "TDAH feminino", "Agende". A publicação de conteúdo vem nos dias seguintes.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-num">04</div>
+        <div class="timeline-content">
+          <span class="badge">Dia 4 · Quinta</span>
+          <h3>Primeiro post de declaração pública.</h3>
+          <p>Carrossel ou vídeo de posicionamento. Roteiro já escrito no plano de ação entregue. "Você passou a vida achando que o problema era com você."</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-num">05</div>
+        <div class="timeline-content">
+          <span class="badge">Dia 5 · Sexta</span>
+          <h3>Primeiro reel educativo.</h3>
+          <p>De 60 a 90 segundos, sem edição pesada. Roteiro pronto. "Se você é mulher e só descobriu TDAH depois dos 20, tem uma explicação."</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-num">06</div>
+        <div class="timeline-content">
+          <span class="badge">Dia 6 · Sábado</span>
+          <h3>Organizar a operação.</h3>
+          <p>Documentar as regras de atendimento. Criar mensagem-padrão de agendamento. Ativar link de agendamento na bio.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-num">07</div>
+        <div class="timeline-content">
+          <span class="badge">Dia 7 · Domingo</span>
+          <h3>Respirar, revisar, responder.</h3>
+          <p>Caminhada (já é hábito, manter). 15 minutos ao voltar: o que foi fácil, o que travou, que paciente ficou mais claro que você quer atrair. Enviar reflexão pelo WhatsApp.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- 10 · POR QUE AGORA -->
+<section>
+  <p class="section-label">10 · Por que esse é o momento</p>
+  <div class="divider"></div>
+  <h2>O timing compõe uma<br><em>janela rara.</em></h2>
+  <p class="lead">Cinco variáveis se alinharam ao mesmo tempo. Essa soma não é comum.</p>
+
+  <div class="cards-grid" style="margin-top: 40px">
+    <div class="card">
+      <h3>Zero legado digital contraditório.</h3>
+      <p>Você tem a oportunidade rara de começar tudo com coerência desde o primeiro post. Nada para reverter, nada para explicar.</p>
+    </div>
+    <div class="card">
+      <h3>TDAH em alta como tema social.</h3>
+      <p>Diagnóstico tardio em mulheres é conversa viva nas redes. O público-alvo está sedento por alguém com lastro clínico falando sobre isso.</p>
+    </div>
+    <div class="card">
+      <h3>NR-01 obrigatória em 26/05/2026.</h3>
+      <p>Abre um mercado corporativo novo a partir do 2º semestre. Quem começar a construir autoridade sobre neurodivergência no trabalho agora, colhe em 6 meses.</p>
+    </div>
+    <div class="card">
+      <h3>Você acaba de sair de ambiente tóxico.</h3>
+      <p>Saiu com clareza do que NÃO quer. Isso é combustível estratégico. A maioria das psicólogas não tem essa consciência.</p>
+    </div>
+    <div class="card">
+      <h3>Tempo livre e disposição.</h3>
+      <p>2 dias livres por semana, emprego paralelo flexível, microfone comprado, celular pronto, cenário montado. Infraestrutura básica resolvida.</p>
+    </div>
+    <div class="card">
+      <h3>Mentoria com duração certa.</h3>
+      <p>90 dias é o tempo necessário para o recorte virar hábito e o mercado começar a responder. Antídoto direto para a "depressãozinha de falta de clareza" que você mesma nomeou.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 11 · PLANO DOS PRÓXIMOS ENCONTROS -->
+<div class="bloco-bege">
+  <section style="padding-top:0;padding-bottom:0">
+    <p class="section-label">11 · Plano dos próximos encontros</p>
+    <div class="divider"></div>
+    <h2>Os 90 dias desenhados<br>em <em>três blocos de trabalho.</em></h2>
+    <p class="lead">A mentoria se organiza em três pilares na ordem fixa da metodologia Equity Pessoal: Produto, Branding e Escala. O Pilar 1 (esse documento) ainda não está 100% fechado. Faltam dois encontros para sustentar todas as decisões de Produto antes de seguir para Branding. Nada entra no próximo bloco antes de o anterior estar consistente.</p>
+
+    <div class="timeline" style="margin-top:56px">
+      <div class="timeline-item">
+        <div class="timeline-num">02</div>
+        <div class="timeline-content">
+          <span class="badge">Encontro 2 · Mês 1 · semana 2</span>
+          <h3>Fechar o Pilar Produto em definitivo.</h3>
+          <p>Revisão da execução da semana 1 (post de declaração, pitch gravado, bio nova). Confirmação do nome do método (Trama, Órbita ou Fio) ou ajuste final. Validação do preço praticado nas primeiras consultas. Refinamento da frase de sustentação com base na reação do público à primeira rodada de conteúdo.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-num">03</div>
+        <div class="timeline-content">
+          <span class="badge">Encontro 3 · Mês 1 · semana 3</span>
+          <h3>Produto concluído + abertura do Pilar Branding.</h3>
+          <p>Último fechamento de Produto (se sobrar ponta solta). Início oficial do Pilar Branding: identidade visual (paleta, tipografia, direção estética do Instagram), tom de voz editorial para os 5 pilares de conteúdo, direção de imagem pessoal que conversa com a consultoria de imagem que você já fez. Benchmarks do que você admira (Natália Beauty como referência de marca pessoal) e do que rejeita (linguagem de coach).</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-num">04</div>
+        <div class="timeline-content">
+          <span class="badge">Encontro 4 · Mês 1 · semana 4</span>
+          <h3>Branding aplicado ao conteúdo.</h3>
+          <p>Calendário editorial dos 60 dias seguintes. Plano de aproveitamento dos 10 vídeos já gravados (ordem de publicação, ajustes, legendas). Roteiros para os próximos 8 reels e 4 carrosséis. Checklist de consistência visual entre destaques, bio, capas e posts. Definição de como o "rigor científico" vai aparecer esteticamente (referências a estudos, citações, formato de carrossel educativo).</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-num">05</div>
+        <div class="timeline-content">
+          <span class="badge">Encontro 5 · Mês 2</span>
+          <h3>Início do Pilar Escala · parte I.</h3>
+          <p>Funil de captação orgânica. Rituais de publicação e engajamento. Primeira estratégia de conversão Instagram para WhatsApp para agendamento. Revisão dos resultados dos primeiros 30 dias de declaração pública do recorte. Início do mapeamento de parcerias (psiquiatras e neurologistas que atendem mulheres adultas).</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-num">06</div>
+        <div class="timeline-content">
+          <span class="badge">Encontro 6 · Mês 3</span>
+          <h3>Pilar Escala · parte II e preparação para NR-01.</h3>
+          <p>Anúncios pagos pontuais (baixo orçamento, teste de criativos). Consolidação das parcerias com profissionais complementares. Estruturação da oferta corporativa para começar a ser vendida a partir da obrigatoriedade da NR-01 em 26/05/2026. Plano dos 6 meses seguintes ao fim da mentoria.</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="lead" style="margin-top:32px">Entre os encontros formais, o acompanhamento segue por WhatsApp: revisão dos conteúdos antes da publicação, feedback de pitch gravado, ajuste de bio, dúvidas clínicas que aparecerem na hora de escrever posts, respiração nos dias em que o imposto interno voltar. O ritmo é o ritmo da integridade. Faturamento vem como consequência da clareza, nunca como pressão sobre ela.</p>
+  </section>
+</div>
+
+<!-- ENCERRAMENTO -->
+<div class="encerramento">
+  <div class="pill">Equity Pessoal · Pilar 1 · Produto</div>
+  <h2>Você já é<br>a psicóloga de <em>TDAH feminino adulto.</em><br>Agora o Brasil vai saber.</h2>
+  <p>O que está pronto, nesta página, não é sugestão. É a direção já construída para os próximos 90 dias. A partir daqui, o trabalho é execução.</p>
+  <div class="assinatura">Maria Clara</div>
+</div>
+
+</body>
+</html>
